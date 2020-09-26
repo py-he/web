@@ -29,9 +29,8 @@
 									console.log(btn);
 				
 									btn.onclick = function data() {
-				//						console.log(year.value);
-				//						console.log(month.value);
-				//						console.log(day.value);
+								if(year.value=="" || month.value=="" || day.value==""){alert("报错");}
+				else{
 										if((year.value %400==0 && year.value %100!=0) || year.value %4==0){
 				//							console.log("是閏年");
 											alert("是閏年");
@@ -69,7 +68,7 @@
 												alert("月份错误");
 											}
 											}
-											
+											}
 											}		
 									}
 
