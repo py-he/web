@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+
+				//第一题
+				//				function fn( a){
+				//					if(a==0 || a==1){
+				//						return a;
+				//					}
+				//					return a*fn(a-1)
+				//				}
+				//				
+				//				 var n=fn(5);
+				//				 document.write(n);
+
+				//					第二题
+									var year = document.getElementById("year");
+									var month = document.getElementById("month");
+									var day = document.getElementById("day");
+									var btn = document.getElementById("btn")
+									console.log(year);
+									console.log(month);
+									console.log(day);
+									console.log(btn);
+				
+									btn.onclick = function data() {
+				//						console.log(year.value);
+				//						console.log(month.value);
+				//						console.log(day.value);
+										if((year.value %4==0 && year.value %100==0) || year.value %400==0){
+				//							console.log("是閏年");
+											alert("是閏年");
+											if(month.value =2){
+												if(day.value<=29 ){
+													alert("正確日期："+year.value+"/"+month.value+"/"+day.value);
+												}
+												else{alert("闰年2月没有"+day.value+"天");}
+											}
+											else{if(month.value !=2 && month.value>=1 && month.value<=12)
+											{if(day.value<=29  ){
+													alert("正確日期："+year.value+"/"+month.value+"/"+day.value);
+												}
+												else{alert("闰年没有"+day.value+"天");}
+											}else{
+												calert("闰年月份错误");
+											}
+											}
+											
+											
+										}
+										else{alert("不是閏年");
+											if(month.value =2){
+												if(day.value<=28 ){
+													alert("正確日期："+year.value+"/"+month.value+"/"+day.value);
+												}
+												else{alert("2月没有"+day.value+"天");}
+											}
+											else{if(month.value !=2 && month.value>=1 && month.value<=12)
+											{if(day.value<=30  ){
+													alert("正確日期："+year.value+"/"+month.value+"/"+day.value);
+												}
+												else{alert("没有"+day.value+"天");}
+											}else{
+												alert("月份错误");
+											}
+											}
+											
+											}		
+									}
+
+				//					第三题
+				var x = document.getElementById("x");
+				var y = document.getElementById("y");
+				var fuhao = document.getElementById("fuhao");
+				var sum1 = document.getElementById("sum");
+				var btn2 = document.getElementById("btn2");
+									console.log(x);
+									console.log(y);
+									console.log(sum);
+									console.log(btn2);
+									console.log(fuhao);
+				
+				btn2.onclick = function data2() {
+				
+					var xx= parseFloat(x.value);
+					var yy= parseFloat(y.value);
+					
+					
+					
+					
+					
+					if(fuhao.value == "+") {
+						sum1.value= xx + yy;
+						console.log(sum1.value);
+					} else {
+						if(fuhao.value == "-") {
+							sum1.value = xx - yy;
+							console.log(sum1.value);
+						} else {
+							if(fuhao.value == "*") {
+							sum1.value = xx * yy;
+								console.log(sum1.value);
+							} else {
+								if(fuhao.value == "/") {
+									sum1.value= xx / yy;
+									console.log(sum1.value);
+								} else {
+									alert("请输入正确的算式");
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<span>年：</span><input type="text" name="" id="year" value="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>月：</span><input type="text" name="" id="month" value="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>日：</span><input type="text" name="" id="day" value="" />
+		<button id="btn">验证</button>
+		<br /><br /><br />
+
+		<br /><br />
+
+		<input type="text" name="" id="x" value="" />
+		<input type="text" name="" id="fuhao" value="" />
+		<input type="text" name="" id="y" value="" />
+		<span>=</span>
+		<input type="text" name="" id="sum" value="" />
+		<button id="btn2">计算</button>
+	</body>
+
+</html>
