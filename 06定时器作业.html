@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var shi =0 ;
+				var fen = 0;
+				var min = 0;
+			
+				var btn1=document.getElementById("btn1");
+				var btn2=document.getElementById("btn2");
+				var p1=document.getElementById("p1");
+//				console.log(btn2);
+
+var haomiao = 0;
+				btn1.onclick=function(){	
+					
+					var timer1 = setInterval(function(){
+						
+					haomiao+=1;
+					if(haomiao==1000){
+						haomiao =0;
+						min+=1;
+						
+						if(min==60){
+							fen +=1;
+							min = 0;
+							if(fen==60){
+								shi +=1;
+								fen =0;
+							}
+						}
+					}
+					p1.innerHTML=shi + " 时 "+fen+" 分 "+min+" 秒 "+haomiao+" 毫秒";
+				btn2.onclick=function(){
+					clearInterval(timer1);
+				}
+					},1)
+				}	
+				
+				
+				var p2=document.getElementById("p2");
+				setInterval(function(){
+					var d = new Date();
+				var year =d.getFullYear();
+				var month = d.getMonth();
+				var day = d.getDay();
+				var hour = d.getHours();
+				var min = d.getMinutes();
+				var sec = d.getSeconds();
+				p2.innerHTML=year+" 年 "+month+" 月 "+day+ " 日 " +hour +" 时 "+min+" 分 "+ sec+" 秒 ";
+				},1000)
+				
+				
+				var p3=document.getElementById("p3");
+				var wid=0;
+				var timer2 = setInterval(function(){
+					wid =parseInt(wid) +1;
+					div1.style.width =wid + "px";
+					div1.style.backgroundColor="red";
+					p3.innerHTML = parseInt((wid /200)*100) +"%";
+					if(wid==200){
+					clearInterval(timer2);
+				}
+				},50)
+		
+				var arr = ["red", "blue", "yellow", "green", "black", "orange"];
+				var i=0;
+				setInterval(function(){
+					i=parseInt(i)+1;
+					arr1=arr[i];	
+					if(i==arr.length-1){
+						i=0;
+					}
+//					console.log(arr1);
+					div2.style.background=arr1;
+				},1000)
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h3>1、实现秒表功能 : 显示时,分,秒 ，毫秒, 点击按钮开始计时</h3>
+	<p id="p1">0时0分0秒0毫秒</p>
+	<button id="btn1">开始计时</button>
+	<button id="btn2">结束计时</button><br /><br /><br />
+	
+	<h3>2、页面上动态显示当前日期（格式：xx年xx 月xx 日 xx时 xx分 xx秒）</h3>
+	<p id="p2">xx年xx 月xx 日 xx时 xx分 xx秒</p>
+	
+	<h3>3、实现进度条.</h3>
+	<div id="div1" style="width: 200px; height: 13px; background: #CCCCCC; border-radius: 5px;">
+	</div>	
+		<p id="p3"></p><br /><br /><br />
+		
+		<h3>5、有一个装有颜色的数组 ["red", "blue", "yellow", "green", "black", "orange"];
+点击button 启动定时器,每一秒给它换一次色
+</h3>
+		<div id="div2" style="width: 150px; height: 150px;background: red;"></div>
+	</body>
+</html>
