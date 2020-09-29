@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+		<style type="text/css">
+			.obox{
+				width: 300px;
+				height: 300px;
+				border: solid 1px #CCCCCC;
+				/*text-align: center;*/
+			}
+			.bt{
+				display: block;
+				margin: 0 auto;
+			}
+			.obx2{
+				height: 30px;
+				width: 80px;
+				position: relative;
+				top: -45px;
+				left: 150px;
+				text-align: center;
+				line-height: 30px;
+				font-size: 27px;
+				text-decoration: line-through;
+				background: orange;
+			}
+		</style>
+		<script type="text/javascript">
+//			
+			window.onload = function(){
+//				1、将下面的字符串str的敏感字符*及空格去掉 (要正确表示*得转义成:\*) 
+			var daan1=document.getElementById("daan1");
+			var str = "H e  l  ** l    o    Wo r         L d  !";
+			var newstr = str.replace(/\*/g,"");
+			newstr = newstr.replace(/\s/g,"");
+			daan1.innerHTML="答案为：str= "+newstr;
+
+				
+				
+//				2.将字符串str = “When I was young, I love a girl in neighbor class.”中,
+//				从young提取到girl。但是不许数[young,girl]
+			var daan2=document.getElementById("daan2");
+			var str2 = "When I was young, I love a girl in neighbor class.";
+			var str22 = str2.indexOf("young");
+			var str222 = str2.indexOf("girl");
+//		
+daan2.innerHTML="young位置下标为： "+str22+", girl下标为： "+str222+"取出来的字符串为： "+str2.substring(11,31);
+
+			
+//			3.点击button 启动定时器,每一秒给它换一次颜色(颜色是随机的)。
+			var btn1=document.getElementById("btn1");
+			var div1 = document.getElementById("div1");
+			btn1.onclick = function(){
+				var arr = ["red", "blue", "yellow", "white","green", "black", "orange"];
+				div1.style.background = arr[Math.round(Math.random()*6)];
+				
+			}
+			
+			var v1=document.getElementById("v1");
+				var v2=document.getElementById("v2");
+				var v3=document.getElementById("v3");
+				var v4=document.getElementById("v4");
+				var btn2=document.getElementById("btn2");
+				//				1、用户名不可以用数字开头，不能为空，用户名长度不低于6，不高于20
+				
+				var re = /^[^0-9][a-z0-9_-]{6,20}$/;
+				var arr=[];
+			btn2.onclick = function(){
+				var admin = v1.value;
+					
+				if(re.test(admin)){console.log("格式正确");
+				if(v2.value==v3.value && v2.value !="" &&v3.value !=0)
+				{
+					console.log("请输入验证码");
+					
+					if(v4.value.toLowerCase()==arr.join("").toLowerCase()){
+						alert("验证成功");
+						v1.value="";
+						v2.value="";
+						v3.value="";
+						v4.value="";
+						
+					}else{
+						alert("验证码错误");
+					}
+					
+					
+				}else{alert("密码不能为空");}
+				}
+				else{		alert("用户名不能以数字开头");
+							v1.value="";
+				}
+				
+			}
+			var yzm=document.getElementById("yzm");
+			var v5=document.getElementById("v5");
+			fn();
+			function fn(){
+//				var arr = [];
+					for(var i=0;i<4;i++){
+						var a1 = Math.floor(Math.random()*3);
+						if(a1==0){
+							var n1 = Math.floor(Math.random()*10);
+						    arr.push(n1);
+						}else if(a1==1){
+							var n1 = Math.floor(Math.random()*26)+65;
+							var n2 = String.fromCharCode(n1);
+						    arr.push(n2);
+						}else if(a1==2){
+							var n1 = Math.floor(Math.random()*26)+97;
+						    var n2 = String.fromCharCode(n1);
+						    arr.push(n2);
+						}
+					}
+					
+					console.log(arr.join("").toLowerCase());
+					
+					yzm.innerHTML = arr.join("");
+			}
+			yzm.onclick=function fnn(){
+				fn();
+			}
+			
+				
+			
+}
+		</script>
+	</head>
+	<body>
+		<h3>	1、将下面的字符串str的敏感字符*及空格去掉 (要正确表示*得转义成:\*) 
+			var str = "H e  l  ** l    o    Wo r         L d  !";</h3>
+			<p id="daan1"></p><br /><br />
+			<h3>2.将字符串str = “When I was young, I love a girl in neighbor class.”中,
+				从young提取到girl。但是不许数[young,girl]</h3>
+			<p id="daan2"></p><br /><br />
+			
+			<h3>3.点击button 启动定时器,每一秒给它换一次颜色(颜色是随机的)。var arr = ["red", "blue", "yellow", "white","green", "black", "orange"];</h3>
+		<div id="div1" style="height: 120px; width: 120px; background: red;"></div>
+		<button id="btn1">切换颜色</button>
+		<br /><br /><br /><br />
+		<h3>用户注册</h3>
+		<div id="" class="obox">
+			<p>用 户 名 ：<input type="text" name="yonghu" id="v1" value="" placeholder="长度不低于6，不高于20"/></p>
+			<p> 密 &nbsp;&nbsp;&nbsp;&nbsp;码 ： <input type="text" name="" id="v2" value="" /></p>
+			<p>确认密码：<input type="text" name="" id="v3" value="" /></p>
+			<p>验 证 码 ：<input type="text" name="" id="v4" value="" size="5"/></p><span id="v5" class="spa"></span>
+		<div class="obx2" id="yzm">
+			
+		</div>
+		<button id="btn2" class="bt">验证</button>
+		</div>
+	</body>
+</html>
